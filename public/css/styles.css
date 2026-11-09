@@ -1,0 +1,385 @@
+:root {
+  color-scheme: light;
+  --page: #f5f6f2;
+  --surface: #ffffff;
+  --ink: #202b28;
+  --muted: #71807a;
+  --line: #e1e7e2;
+  --green: #176b52;
+  --green-soft: #e7f2eb;
+  --warm: #f4ede2;
+  font-family: "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--page);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 49.9%,
+      rgba(32, 43, 40, 0.025) 50%,
+      transparent 50.1%
+    ),
+    var(--page);
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.topbar {
+  height: 68px;
+  padding: 0 max(24px, calc((100vw - 1180px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand-mark,
+.agent-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+}
+
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+}
+
+.topbar-note,
+.product-count {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.page-layout {
+  width: min(1180px, calc(100% - 48px));
+  margin: 52px auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  align-items: start;
+  gap: 48px;
+}
+
+.section-heading {
+  min-height: 76px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.product-item {
+  min-height: 164px;
+  padding: 20px 20px 18px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.product-item:nth-child(odd) {
+  margin-right: 20px;
+}
+
+.product-item:nth-child(even) {
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+}
+
+.product-name {
+  margin-bottom: 7px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.product-description {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.product-details {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.product-price {
+  color: var(--green);
+  font-size: 15px;
+}
+
+.product-stock {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.notice {
+  margin: 0;
+  padding: 16px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.chat-panel {
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 12px 32px rgba(32, 43, 40, 0.05);
+}
+
+.chat-heading {
+  min-height: 76px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.agent-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.chat-heading h2 {
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.chat-heading p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.online-dot {
+  width: 7px;
+  height: 7px;
+  margin-right: 4px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #54a879;
+}
+
+.chat-messages {
+  min-height: 290px;
+  max-height: 420px;
+  padding: 18px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #fff 0%, #fbfcfa 100%);
+}
+
+.chat-bubble {
+  max-width: 88%;
+  margin-bottom: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.chat-bubble--agent {
+  background: var(--green-soft);
+}
+
+.chat-bubble--user {
+  align-self: flex-end;
+  background: var(--warm);
+}
+
+.chat-form {
+  padding: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.chat-form textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  outline: none;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.chat-form textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(23, 107, 82, 0.12);
+}
+
+.chat-form-footer {
+  min-height: 38px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.chat-status {
+  color: #9a503b;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.chat-form button {
+  min-width: 84px;
+  min-height: 36px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chat-form button:hover:not(:disabled) {
+  background: #105941;
+}
+
+.chat-form button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 800px) {
+  .page-layout {
+    max-width: 640px;
+    margin-top: 36px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .chat-panel {
+    min-height: 400px;
+  }
+
+  .chat-messages {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    height: 60px;
+    padding: 0 18px;
+  }
+
+  .page-layout {
+    width: calc(100% - 36px);
+    margin: 28px auto;
+    gap: 26px;
+  }
+
+  .section-heading {
+    min-height: 68px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .product-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .product-item,
+  .product-item:nth-child(odd),
+  .product-item:nth-child(even) {
+    min-height: 138px;
+    margin-right: 0;
+    padding: 16px 0;
+    border-left: 0;
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "cs-bot-api",
   "version": "1.0.0",
-  "description": "AI Customer Service API - Gemini + Express + Sequelize (MVC simple, API only, no view)",
+  "description": "AI Customer Service app - Gemini + Express + Sequelize with EJS user views",
   "main": "app.js",
   "type": "commonjs",
   "scripts": {
@@ -13,6 +13,7 @@
     "@google/generative-ai": "^0.21.0",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
+    "ejs": "^7.0.2",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "pg": "^8.12.0",
