@@ -43,6 +43,20 @@ cs-bot-api/
 │   └── js/app.js            # Fetch API untuk produk dan chat
 ├── seeders/
 │   └── seed.js            # admin + produk dummy
+├── tests/
+│   ├── unit/
+│   │   ├── controllers/   # unit test controller
+│   │   ├── services/      # unit test service
+│   │   └── utils/         # unit test middleware & response
+│   ├── integration/
+│   │   ├── auth.test.js
+│   │   ├── users.test.js
+│   │   └── products.test.js
+│   ├── fixtures/
+│   │   └── users.js       # data admin untuk testing
+│   └── setup/
+│       └── test-setup.js
+├── vitest.config.js       # konfigurasi Vitest
 └── utils/
     └── response.js
 ```
@@ -76,6 +90,32 @@ npm run seed
 ```bash
 npm run dev
 ```
+
+## Testing
+
+Project ini menggunakan **Vitest** untuk unit test dan **Supertest** untuk integration
+test. Model/database serta layanan eksternal dimock agar test tidak membutuhkan
+koneksi PostgreSQL atau API Gemini.
+
+### Menjalankan test
+
+```bash
+# semua unit test dan integration test
+npm test
+
+# hanya unit test
+npm run test:unit
+
+# hanya integration test
+npm run test:integration
+
+# mode watch saat development
+npm run test:watch
+```
+
+Unit test memeriksa fungsi controller, middleware, utility response, dan service
+secara terpisah. Integration test menguji endpoint Express dengan HTTP request,
+session login admin, dan middleware autentikasi menggunakan Supertest.
 
 ## Endpoint
 
