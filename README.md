@@ -109,6 +109,9 @@ npm run test:unit
 # hanya integration test
 npm run test:integration
 
+# menjalankan test dengan laporan coverage
+npm run test:coverage
+
 # mode watch saat development
 npm run test:watch
 ```
